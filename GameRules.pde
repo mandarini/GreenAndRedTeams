@@ -13,6 +13,8 @@ void rules()
         goalR = new PVector(25, random(height)); //new random goals
         agentsred.add(new AgentsRed()); 
       }
+      else if (agentsgreen.get(i).isFinished()==true) agentsgreen.remove(i);
+     // println(agentsgreen.size());
     }
   
   
@@ -27,6 +29,8 @@ void rules()
           agentsred.remove(i);
           goalG = new PVector(width-25, random(height));
           agentsgreen.add(new AgentsGreen());
-        }  
+        }
+    else if (agentsred.get(i).isFinished()==true) agentsred.remove(i);  
    } 
+   println(agentsred.size());
 }

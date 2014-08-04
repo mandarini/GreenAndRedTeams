@@ -28,7 +28,7 @@ class AgentsRed
   boolean isFinished()
   {
       boolean done = false;
-      if(PVector.dist(k,goalR)<10) done = true;
+      if(k.x<10) done = true;
       return done;
   }
   

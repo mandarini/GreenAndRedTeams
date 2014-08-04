@@ -29,7 +29,7 @@ class AgentsGreen
   boolean isFinished()
   {
       boolean done = false;
-      if(PVector.dist(p,goalG)<10) done = true;
+      if(p.x>(width-10)) done = true;
       return done;
   }
   

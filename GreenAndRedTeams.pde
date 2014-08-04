@@ -17,7 +17,7 @@ void setup()
   x=0;
   re= color(255, 102, 102);
   gre= color(0, 153, 76);
-  for(int i = 0; i<100; i++)
+  for(int i = 0; i<30; i++)
   {
     goalG = new PVector(width-25, random(height));
     goalR = new PVector(25, random(height));
@@ -28,13 +28,23 @@ void setup()
 
 void draw()
 {
-
+  winCheck();
   if (frameCount<100)
   {
     instructions();
   }
   else
   { 
+    if ((frameCount<250)&&(frameCount%20==0))
+    {
+        for(int i = 0; i<10; i++)
+       {
+        goalG = new PVector(width-25, random(height));
+        goalR = new PVector(25, random(height));
+        agentsgreen.add(new AgentsGreen());
+        agentsred.add(new AgentsRed());
+       }
+    }
     background(224, 224, 224);
     panel();
   
@@ -50,13 +60,28 @@ void draw()
     }
     rules();
   }
+  
+  ending();
+
+
+}
+
+
+void winCheck()
+{
+  if (statesValuesA[0]>statesValuesB[0]) x=x+1;
+  else x=x-1;
 }
 
 
 void keyPressed()
 {
-   if (key=='r') x=x+1;
-   if (key=='p') x=x-1;
-   if (key=='0') setup();
+   //if (key=='r') x=x+1;
+  // if (key=='p') x=x-1;
+   if (key=='0') 
+   {
+     setup();
+     loop();
+   }
 }
 
